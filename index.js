@@ -7,7 +7,7 @@ const routes = require('./Routes/router')
 const ecommerceServer = express()
 ecommerceServer.use(cors())
 ecommerceServer.use(express.json())
-// ecommerceServer.use(routes)
+ecommerceServer.use(routes)
 
 const PORT = 3000 || process.env.PORT
 
