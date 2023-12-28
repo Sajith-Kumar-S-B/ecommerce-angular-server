@@ -98,3 +98,36 @@ exports.decrementCartController = async(req,res)=>{
 
     }
 }
+
+
+
+// remove item from cart
+
+exports.removeCartItemContoller = async(req,res)=>{
+    const {id} = req.params
+    try{
+    await carts.deleteOne({_id:id})
+    res.status(200).json("Item Removed")
+
+
+    }catch(err){
+   res.status(401).json(err)
+    }
+}
+
+
+
+// empty cart
+
+
+exports.emptyCartContoller = async(req,res)=>{
+   const userId = req.payload
+    try{
+    await carts.deleteMany({userId})
+    res.status(200).json("cart empty")
+
+
+    }catch(err){
+   res.status(401).json(err)
+    }
+}

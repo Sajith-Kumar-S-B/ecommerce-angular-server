@@ -38,6 +38,18 @@ router.get("/cart/increment/:id",jwtMiddleware,cartController.incrementCartContr
 // decrement cart
 router.get("/cart/decrement/:id",jwtMiddleware,cartController.decrementCartController)
 
+
+
+// delete cart item
+
+router.delete("/cart/remove/:id",jwtMiddleware,cartController.removeCartItemContoller)
+
+
+// empty cart
+
+router.delete("/cart/empty",jwtMiddleware,cartController.emptyCartContoller)
+
+
 // register
 
 router.post('/user/register',userController.registerController)
